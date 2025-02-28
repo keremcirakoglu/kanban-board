@@ -1,0 +1,438 @@
+html, body {
+  overflow-x: hidden;
+}
+
+:root {
+  --background: #1b1b1f;
+  --newtask: #1e1e22;
+  --board: #1d1d22;
+  --todo: #18181b;
+  --todohover: #26262b;
+  --text: #ededf1;
+  --a: #dddddd;
+  --sidebar-bg: #a1a1a1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  background-color: var(--background);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  background-color: var(--sidebar-bg);
+  overflow: visible;
+  z-index: 100;
+}
+
+#theme-toggle {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#github-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+#github-btn img {
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+#sidebar-add-btn {
+  display: block;
+  margin: 10px auto;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: var(--board);
+  color: var(--text);
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#projects-list {
+  background-color: var(--sidebar-bg);
+}
+
+.project-btn {
+  display: block;
+  margin: 10px auto;
+  width: 40px;
+  height: 40px;
+  background-color: var(--board);
+  color: var(--text);
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: none;
+}
+.project-btn.active {
+  border: 2px solid var(--text);
+}
+
+.project-btn-container {
+  position: relative;
+  width: 40px;
+  margin: 10px auto;
+  border-radius: 8px;
+  overflow: visible;
+}
+.delete-project-btn {
+  position: absolute;
+  top: 0;
+  right: -45px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--todohover);
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+.delete-project-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: red;
+  background: none;
+}
+.project-btn-container:hover .delete-project-btn {
+  opacity: 1;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin-top: 200px;
+  overflow: hidden;
+  position: relative;
+  margin-left: 60px;
+}
+
+#project-name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#project-name-input-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 55px;
+}
+
+#project-name-input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+#project-name-create-btn {
+  padding: 8px 16px;
+  background-color: var(--text);
+  color: var(--background);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#project-name-create-btn:hover {
+  background-color: var(--text);
+}
+
+#project-name-display-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#project-name-display {
+  font-size: 55px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: var(--text);
+}
+
+#project-name-edit-btn {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 10px;
+  fill: var(--text);
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+#project-name-edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.lanes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text);
+  padding: 24px 32px;
+  overflow: auto;
+  height: auto;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  background-color: var(--board);
+  text-align: center;
+}
+.heading svg {
+  width: 18px;
+  margin-right: 5px;
+  fill: var(--text);
+  background: var(--board);
+}
+
+.lane-counter {
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.swim-lane {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--board);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 16px;
+  border-radius: 8px;
+  width: 300px;
+  min-height: 0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.task {
+  background: var(--todo);
+  color: var(--text);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  padding: 16px 30px 16px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: move;
+  position: relative;
+  transition: 0.1s;
+  animation: fadeIn 0.3s ease-in-out;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.is-dragging {
+  scale: 1.1;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  color: var(--text);
+}
+
+.task-buttons {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: var(--todo);
+}
+.task:hover .task-buttons {
+  opacity: 1;
+}
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  fill: var(--text);
+}
+.edit-btn svg {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  background: none;
+}
+.delete-btn svg {
+  width: 15px;
+  height: 15px;
+  background: none;
+}
+.edit-btn:hover svg {
+  fill: #ffd700;
+}
+.delete-btn:hover svg {
+  fill: red;
+}
+
+.add-task-btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: var(--board);
+  color: var(--text);
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: auto;
+}
+.add-task-btn:hover {
+  background-color: var(--board);
+  color: var(--text);
+}
+
+.inline-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.inline-input input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  color: var(--text);
+}
+.inline-input button {
+  padding: 8px 16px;
+  background-color: #007bff; 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.inline-input button:hover {
+  background-color: #1888ff;
+}
+
+.edit-input {
+  background: var(--todo);
+  border: 1px solid var(--text);
+  color: var(--text);
+  padding: 4px;
+  border-radius: 4px;
+  width: calc(100% - 60px);
+  font-size: inherit;
+  cursor: text;
+}
+
+.task-content {
+  display: inline-block;
+  width: calc(100% - 40px);
+  word-break: break-word;
+  background: var(--todo);
+}
+
+@media (max-width: 768px) {
+  .board {
+    margin-top: 100px;
+  }
+  .lanes {
+    flex-direction: column;
+    padding: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .swim-lane {
+    width: 100%;
+    margin-bottom: 20px;
+    max-width: none;
+  }
+  #theme-toggle {
+    top: 5px;
+    right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  #project-name-display {
+    font-size: 24px;
+  }
+  .swim-lane {
+    padding: 10px;
+  }
+  .task {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* Ripple Effect for Buttons */
+button {
+  position: relative;
+  overflow: hidden;
+}
+button::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+  transition: transform 0.5s, opacity 1s;
+}
+button:active::after {
+  transform: scale(4);
+  opacity: 0;
+}
+
+/* Task Animation: Fade-in when added */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover Animation for Project Buttons */
+.project-btn:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
