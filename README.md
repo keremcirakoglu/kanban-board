@@ -7,9 +7,9 @@ A lightweight, browser-based Kanban board application built with vanilla JavaScr
 
 ## 🚀 Live Demo
 
-Visit the live application: [https://yourusername.github.io/kanban-project](https://yourusername.github.io/kanban-project)
+Visit the live application: [https://keremcirakoglu.github.io/kanban-board/)
 
-![Kanban Board Screenshot](screenshot.png)
+![Kanban Board Screenshot](screenshot.png) (screenshot1.png) (screenshot2.png)
 
 ## ✨ Features
 
