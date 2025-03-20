@@ -1,3 +1,4 @@
+![Cover](cover.jpg)
 # Kanban Board
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
