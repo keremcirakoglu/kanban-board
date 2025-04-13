@@ -1,6 +1,6 @@
 const root = document.documentElement;
 const themeToggleButton = document.getElementById("theme-toggle");
-const githubIcon = document.querySelector("#github-btn img");
+const githubIcon = document.querySelector("#github-btn svg");
 
 export const initTheme = () => {
   const saved = localStorage.getItem("theme");
@@ -23,7 +23,8 @@ export const applyTheme = (isDark) => {
     root.style.setProperty("--sidebar-bg", "#111111");
     themeToggleButton.textContent = "☀️";
     localStorage.setItem("theme", "dark");
-    if (githubIcon) githubIcon.style.filter = "brightness(2.5)";
+
+    if (githubIcon) githubIcon.setAttribute("fill", "#f5f5f5");
   } else {
     root.style.setProperty("--background", "#eeeded");
     root.style.setProperty("--newtask", "#ddd");
@@ -34,7 +35,8 @@ export const applyTheme = (isDark) => {
     root.style.setProperty("--sidebar-bg", "#a1a1a1");
     themeToggleButton.textContent = "🌙";
     localStorage.setItem("theme", "light");
-    if (githubIcon) githubIcon.style.filter = "brightness(1)";
+
+    if (githubIcon) githubIcon.setAttribute("fill", "#1a1a1a");
   }
 };
 
