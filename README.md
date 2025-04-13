@@ -1,4 +1,4 @@
-![Cover](cover.jpg)
+![Mockup](screenshot2.png)
 # Kanban Board
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -16,7 +16,7 @@ Visit the live application: [https://keremcirakoglu.github.io/kanban-board/)
 ## ✨ Features
 
 - **Simple Task Management:** Create, edit, and delete tasks easily
-- **Drag & Drop:** Intuitive drag-and-drop interface for task management
+- **Drag & Drop:** Drag-and-drop interface for task management `Credits: Tutorial - https://youtu.be/ecKw7FfikwI?si=m8cg_XwoXV5fSTTJ`
 - **Multiple Projects:** Create and manage separate project workspaces
 - **Dark/Light Theme:** Toggle between dark and light modes
 - **Persistent Storage:** All data is saved locally in your browser
@@ -50,6 +50,20 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## 🗺️ Roadmap
+
+### ✅ Short-Term Goals
+- [ ] Theme customization support  
+  `e.g. color schemes, font settings, layout options`
+- [ ] Data import/export  
+  `save and load boards as JSON`
+
+### 💡 Long-Term Vision
+- [ ] Desktop application version  
+  `built with Electron or a similar framework`
+- [ ] Cloud sync and user accounts  
+  `access your boards across devices`
 
 ## 📝 License
 
