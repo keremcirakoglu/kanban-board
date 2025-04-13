@@ -39,16 +39,7 @@ Visit the live application: [https://keremcirakoglu.github.io/kanban-board/)
 3. **Theme:**
    - Toggle between light/dark themes using the theme button
 
-## 🛠 Development
-
-If you want to run this project locally:
-
-1. Clone the repository
-2. Open `index.html` in your browser
-3. For development, using a local server is recommended:
-   ```bash
-   npx http-server
-   ```
+   
 
 ## 🤝 Contributing
 
