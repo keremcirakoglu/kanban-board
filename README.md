@@ -56,14 +56,14 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 ### ✅ Short-Term Goals
 - [ ] Theme customization support  
   `e.g. color schemes, font settings, layout options`
-- [ ] Data import/export  
-  `save and load boards as JSON`
+- [ ] Add & edit boards columns
+  `customize columns`
 
 ### 💡 Long-Term Vision
 - [ ] Desktop application version  
   `built with Electron or a similar framework`
-- [ ] Cloud sync and user accounts  
-  `access your boards across devices`
+- [ ] Data import/export 
+  `save and load boards as JSON`
 
 ## 📝 License
 
