@@ -56,18 +56,14 @@ html, body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 38px;
+  width: 36px;
   height: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: none;
+  color: var(--text);
 }
-#github-btn img {
-  width: 100%;
-  height: 100%;
-  background: none;
-}
+
 
 #sidebar-add-btn {
   display: block;
@@ -386,10 +382,6 @@ html, body {
     width: 100%;
     margin-bottom: 20px;
     max-width: none;
-  }
-  #theme-toggle {
-    top: 5px;
-    right: 5px;
   }
 }
 
